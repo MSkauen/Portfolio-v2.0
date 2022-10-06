@@ -1,6 +1,7 @@
-import Link from 'next/link'
+import { Link } from 'react-scroll'
 import React from 'react'
 import {Cursor, useTypewriter} from 'react-simple-typewriter'
+import { urlFor } from '../sanity'
 import { PageInfo } from '../typings'
 import BackgroundCircles from './BackgroundCircles'
 
@@ -23,10 +24,12 @@ export default function Hero({ pageInfo }: Props) {
   return (
     <div className='h-screen flex flex-col space-y-8 items-center justify-center
     text-center overflow-hidden'>
+        
         <BackgroundCircles/>
+
         <img 
-            className='relative rounded-full h-32 w-32 mx-auto object-cover'
-            src="/placeholder.png"
+            className='filter hue-rotate relative rounded-full h-32 w-32 mx-auto object-cover'
+            src={urlFor(pageInfo?.profilePic).url()}
             alt='Profile picture'>
         </img>
 
@@ -39,15 +42,12 @@ export default function Hero({ pageInfo }: Props) {
                 <Cursor cursorColor='#F7AB0A'/>
             </h1>
 
-            <div className='pt-5'>
-                <Link href="#projects">
+            <div className='pt-5' >
+                <Link to="projects" spy={true} smooth={true}>
                     <button className='heroButton'>Projects</button>
                 </Link>
-                <Link href="#skills">
+                <Link to="skills" spy={true} smooth={true}>
                     <button className='heroButton'>Skills</button>
-                </Link>
-                <Link href="#about">
-                    <button className='heroButton'>About</button>
                 </Link>
             </div>
         </div>

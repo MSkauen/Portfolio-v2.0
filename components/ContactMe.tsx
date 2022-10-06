@@ -24,18 +24,18 @@ function ContactMe({}: Props) {
       </h3>
 
       <div className="flex flex-col space-y-10">
-        <div className="space-y-10">
+        <div className="lg:space-y-10 sm:space-y-2">
           <div className="flex items-center space-x-5 justify-center">
             <PhoneIcon className="text-[#F7AB0A] h-7 w-7 animate-pulse" />
-            <p className="text-2xl">+47 454 76 628</p>
+            <p className="lg:text-2xl md:text-xl sm:text-sm">+47 454 76 628</p>
           </div>
           <div className="flex items-center space-x-5 justify-center">
             <EnvelopeIcon className="text-[#F7AB0A] h-7 w-7 animate-pulse" />
-            <p className="text-2xl">mathias.skauen.harestad@gmail.com</p>
+            <p className="lg:text-2xl md:text-xl sm:text-sm">mathias.skauen.harestad@gmail.com</p>
           </div>
           <div className="flex items-center space-x-5 justify-center">
             <MapIcon className="text-[#F7AB0A] h-7 w-7 animate-pulse" />
-            <p className="text-2xl">Furusetlia 23A</p>
+            <p className="lg:text-2xl md:text-xl sm:text-sm">Furusetlia 23A</p>
           </div>
         </div>
 

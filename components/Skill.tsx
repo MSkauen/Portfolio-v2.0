@@ -11,7 +11,7 @@ type Props = {
 function Skill({ directionLeft, skill }: Props) {
   return (
     <div className='group relative flex cursor-pointer'>
-        <motion.img
+        <motion.div 
             initial={{
                 x: directionLeft ? -200 : 200,
                 opacity: 0
@@ -19,17 +19,22 @@ function Skill({ directionLeft, skill }: Props) {
             transition={{
                 duration: 1
             }}
-            src={urlFor(skill?.image).url()}
             whileInView={{ opacity: 1, x: 0}}
-            className="rounded-full border border-gray-500 object-contain w-24 h-24 md:w-28 md:h-28 xl:w-32
-            xl:h-32 filter group-hover:grayscale transition duration-300 ease-in-out"
-        />
-        <div className='absolute opacity-0 group-hover:opacity-80 transition duration-300 ease-in-out
-        group-hover:bg-white h-24 w-24 md:w-28 md:h-28 xl:w-32 xl:h-32 rounded-full z-0'>
-            <div className='flex items-center justify-center h-full'>
-                <p className='text-xl font-bold text-black opacity-100'>{skill.title}</p>
+            className='flex items-center justify-center rounded-full border border-gray-500 w-24 h-24 md:w-28 md:h-28 xl:w-32
+                xl:h-32'>
+
+            <img
+                src={urlFor(skill?.image).url()}
+                className="object-contain w-16 h-16 md:w-18 md:h-18 xl:w-23
+                xl:h-23 filter group-hover:grayscale transition duration-300 ease-in-out"
+            />
+                        <div className='absolute opacity-0 group-hover:opacity-80 transition duration-300 ease-in-out
+            group-hover:bg-white h-24 w-24 md:w-28 md:h-28 xl:w-32 xl:h-32 rounded-full z-0'>
+                <div className='flex items-center justify-center h-full'>
+                    <p className='text-xl font-bold text-black opacity-100'>{skill.title}</p>
+                </div>
             </div>
-        </div>
+        </motion.div>
     </div>
   )
 }

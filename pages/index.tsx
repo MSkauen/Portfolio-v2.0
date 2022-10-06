@@ -1,6 +1,8 @@
 import type { GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
 import Link from 'next/link'
+import { Element } from 'react-scroll'
+
 import About from '../components/About'
 import ContactMe from '../components/ContactMe'
 import Header from '../components/Header'
@@ -15,7 +17,9 @@ import { fetchProjects } from '../utils/fetchProjects'
 import { fetchSkills } from '../utils/fetchSkills'
 import { fetchSocials } from '../utils/fetchSocials'
 import { ChevronUpIcon } from "@heroicons/react/24/solid";
-
+      <Element className="element" name="section2" >
+        Section two
+      </Element>
 
 type Props = {
   pageInfo: PageInfo;
@@ -43,10 +47,10 @@ const Home: NextPage = ({ pageInfo, socials, experiences, skills, projects }: Pr
       <Projects projects={projects}/>
     </section>
 
+  {/* 
     <section id="about" className='snap-center'>
       <About pageInfo={pageInfo}/>
     </section>
-  {/* 
     <section id="experience" className='snap-center'>
       <WorkExperience/>
     </section>
@@ -56,7 +60,6 @@ const Home: NextPage = ({ pageInfo, socials, experiences, skills, projects }: Pr
       <Skills skills={skills}/>
     </section>
 
-
     <section id="contact" className='snap-start'>
       <ContactMe/>
     </section>
@@ -64,7 +67,7 @@ const Home: NextPage = ({ pageInfo, socials, experiences, skills, projects }: Pr
     <Link href="#hero">
       <footer className='sticky bottom-5 w-full cursor-pointer'>
         <div className='flex items-center justify-center'>
-          <ChevronUpIcon className='h-10 w-10 rounded-full filter grayscale hover:grayscale-0 cursor-pointer'/>
+          <ChevronUpIcon className='h-10 w-10 rounded-full hover:opacity-40'/>
         </div>
       </footer>
     </Link>
