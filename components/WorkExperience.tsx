@@ -19,7 +19,7 @@ function WorkExperience({}: Props) {
 
         <div
             className='w-full flex space-x-5 overflow-x-scroll
-            p-10 snap-x mt-3'
+            p-10 snap-x'
         >
             <WorkCard/>
             <WorkCard/>

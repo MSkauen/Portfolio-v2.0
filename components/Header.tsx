@@ -1,9 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { SocialIcon } from "react-social-icons";
-type Props = {}
+import { Social } from '../typings';
+type Props = {
+    socials: Social[],
+};
 
-function Header({}: Props) {
+function Header({ socials }: Props) {
   return (
     <header className='sticky top-0 flex justify-between items-start
     max-w-7xl mx-auto z-20 xl:items-center p-5'>
@@ -23,21 +26,14 @@ function Header({}: Props) {
             }}
             className='flex flex-row items-center'
         >
-            <SocialIcon
-                url=""
-                fgColor="gray"
-                bgColor='transparent'
-            /> 
-           <SocialIcon
-                url=""
-                fgColor="gray"
-                bgColor='transparent'
-            />
-           <SocialIcon
-                url=""
-                fgColor="gray"
-                bgColor='transparent'
-            />
+            {socials.map((e) => (
+                <SocialIcon
+                    key={e._id}
+                    url={e.url}
+                    fgColor='grey'
+                />
+                
+            ))}
         </motion.div>
 
         <motion.div

@@ -14,8 +14,8 @@ export default {
       type: "string",
     },
     {
-      name: "heroImage",
-      title: "Image",
+      name: "profilePic",
+      title: "Profile Picture",
       type: "image",
       options: {
         hotspot: true,
@@ -23,7 +23,7 @@ export default {
     },
     {
       name: "phoneNumber",
-      title: "PhoneNumber",
+      title: "Phone Number",
       type: "string",
     },
     {
@@ -41,6 +41,11 @@ export default {
       title: "Socials",
       type: "array",
       of: [{ type: "reference", to: { type: "social" } }],
+    },
+    {
+      name: "backgroundInformation",
+      title: "Background Information",
+      type: "string",
     },
   ],
 };

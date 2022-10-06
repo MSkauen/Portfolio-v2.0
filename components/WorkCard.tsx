@@ -45,7 +45,6 @@ function WorkCard({}: Props) {
                 <li>Summary points</li>
                 <li>Summary points</li>
                 <li>Summary points</li>
-                <li>Summary points</li>
             </ul>
         </div>
     </article>

@@ -6,7 +6,7 @@ export default {
     {
       name: "title",
       title: "Title",
-      description: "Title of the project",
+      description: "Project Title",
       type: "string",
     },
     {
