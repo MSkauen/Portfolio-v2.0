@@ -14,6 +14,8 @@ import { fetchPageInfo } from '../utils/fetchPageInfo'
 import { fetchProjects } from '../utils/fetchProjects'
 import { fetchSkills } from '../utils/fetchSkills'
 import { fetchSocials } from '../utils/fetchSocials'
+import { ChevronUpIcon } from "@heroicons/react/24/solid";
+
 
 type Props = {
   pageInfo: PageInfo;
@@ -62,7 +64,7 @@ const Home: NextPage = ({ pageInfo, socials, experiences, skills, projects }: Pr
     <Link href="#hero">
       <footer className='sticky bottom-5 w-full cursor-pointer'>
         <div className='flex items-center justify-center'>
-          <img className='h-10 w-10 rounded-full filter grayscale hover:grayscale-0 cursor-pointer' src="placeholder.png" alt="" />
+          <ChevronUpIcon className='h-10 w-10 rounded-full filter grayscale hover:grayscale-0 cursor-pointer'/>
         </div>
       </footer>
     </Link>

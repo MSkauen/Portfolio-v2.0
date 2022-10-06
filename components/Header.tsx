@@ -31,6 +31,7 @@ function Header({ socials }: Props) {
                     key={e._id}
                     url={e.url}
                     fgColor='grey'
+                    bgColor='transparent'
                 />
                 
             ))}

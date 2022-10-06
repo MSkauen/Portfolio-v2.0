@@ -36,6 +36,16 @@ function Projects({ projects }: Props) {
               src={urlFor(p?.image).url()}
               alt={p?.title}
             />
+            
+            <div className='flex space-x-2 my-2'>
+            {p.technologies.map(( t ) => (
+                <img
+                    key={t._id}
+                    className='h-10 w-10'
+                    src={urlFor(t.image).url()} alt={t.title}
+                />
+            ))}
+            </div>
 
             <div className="space-y-10 px-0 md:px-10 max-w-6xl">
               <h4 className="text-4xl font-semibold text-clip">
