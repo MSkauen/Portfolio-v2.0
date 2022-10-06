@@ -18,8 +18,6 @@ This project is currently under development, but feel free to install the projec
 - Go to [http://localhost:3000](http://localhost:3000) in browser.
 - Go to [http://localhost:3333](http://localhost:3333) to access sanity server studio.
 
-  - `npm run start:dev`
-
 - For troubleshooting, see "Troubleshooting" below.
 
 ## To Do
