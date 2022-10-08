@@ -4,6 +4,11 @@
 
 This project is currently under development, but feel free to install the project yourself.
 
+[https://mathiasharestad.no](Live)
+or
+[https://portfolio-v2-0-phi.vercel.app/](Live)
+
+
 ## How to run
 
 - The project uses Sanity to create and fetch data
