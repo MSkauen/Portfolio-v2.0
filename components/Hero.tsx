@@ -24,7 +24,7 @@ export default function Hero({ pageInfo }: Props) {
         >
             <BackgroundCircles />
 
-            <a href="https://dice-den.vercel.app/" target="_blank" rel="noopener noreferrer">
+            <a href="https://dice-den.vercel.app/" rel="noopener noreferrer">
                 <Image
                     className="filter hover:hue-rotate-60 animate-pulse relative rounded-full mx-auto object-cover"
                     src={urlFor(pageInfo?.profilePic).url()}
