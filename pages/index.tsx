@@ -15,6 +15,8 @@ import { fetchProjects } from '../utils/fetchProjects'
 import { fetchSkills } from '../utils/fetchSkills'
 import { fetchSocials } from '../utils/fetchSocials'
 import { ChevronUpIcon } from '@heroicons/react/24/solid'
+import { groq } from 'next-sanity'
+import { sanityClient } from '../sanity'
 
 type Props = {
     pageInfo: PageInfo
@@ -28,7 +30,7 @@ const Home = ({ pageInfo, socials, experiences, skills, projects }: Props) => {
     return (
         <div
             className="bg-[rgb(36,36,36)] text-white h-screen snap-y 
-    overflow-y-scroll overflow-x-hidden z-0"
+     overflow-x-hidden z-0"
         >
             <Head>
                 <title>Mathias Skauen Harestad</title>
@@ -43,15 +45,6 @@ const Home = ({ pageInfo, socials, experiences, skills, projects }: Props) => {
             <section id="projects" className="snap-start">
                 <Projects projects={projects} />
             </section>
-
-            {/* 
-    <section id="about" className='snap-center'>
-      <About pageInfo={pageInfo}/>
-    </section>
-    <section id="experience" className='snap-center'>
-      <WorkExperience/>
-    </section>
-  */}
 
             <section id="skills" className="snap-start">
                 <Skills skills={skills} />
@@ -74,20 +67,39 @@ const Home = ({ pageInfo, socials, experiences, skills, projects }: Props) => {
 
 export default Home
 
-export const getStaticProps: GetStaticProps<Props> = async () => {
-    const pageInfo: PageInfo = await fetchPageInfo()
+const pageInfoQuery = groq`
+    *[_type == "pageInfo"][0]
+`
+
+const skillquery = groq`
+    *[_type == "skill"]
+`
+
+const projectQuery = groq`
+*[_type == "project"] {
+  ...,
+  technologies[]->
+} | order(_createdAt asc)
+`
+const socialQuery = groq`
+    *[_type == "social"]
+`
+
+export async function getStaticProps() {
+    const pageInfo: PageInfo = await sanityClient.fetch(pageInfoQuery);
+    const skills: Skill[] = await sanityClient.fetch(skillquery);
+    const projects: Project[] = await sanityClient.fetch(projectQuery);
+    const socials: Social[] = await sanityClient.fetch(socialQuery);
+    {/*
     const experiences: Experience[] = await fetchExperiences()
-    const skills: Skill[] = await fetchSkills();
-    const projects: Project[] = await fetchProjects()
-    const socials: Social[] = await fetchSocials()
+    */}
 
     return {
         props: {
             pageInfo,
-            experiences,
             skills,
             projects,
-            socials,
+            socials
         },
         revalidate: 10,
     }

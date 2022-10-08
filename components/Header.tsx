@@ -27,7 +27,7 @@ function Header({ socials }: Props) {
             }}
             className='flex flex-row items-center'
         >
-            {socials.map((e) => (
+            {socials?.map((e) => (
                 <SocialIcon
                     className='cursor-pointer hover:opacity-40'
                     key={e._id}

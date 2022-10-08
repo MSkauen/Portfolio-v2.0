@@ -1,14 +1,34 @@
-import React from 'react'
+import React, { useRef } from 'react'
+import { useDraggable } from "react-use-draggable-scroll";
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { Project } from '../typings'
 import { urlFor } from '../sanity'
+import useSound from 'use-sound';
 
 type Props = {
-    projects: Project[]
+    projects: Project[],
 }
 
 function Projects({ projects }: Props) {
+    const [isHovering, setIsHovering] = React.useState(
+        false
+    );
+        
+    const soundUrl = 'click.mp3';
+    
+    const [play, { stop }] = useSound(
+        soundUrl,
+        { volume: 0.3 }
+    );
+    
+    const ref =
+    useRef<HTMLDivElement>() as React.MutableRefObject<HTMLInputElement>;
+
+    const { events } = useDraggable(ref, {
+        applyRubberBandEffect: true,
+        decayRate: 0.98,
+      });
     return (
         <motion.div
             initial={{ opacity: 0 }}
@@ -21,7 +41,7 @@ function Projects({ projects }: Props) {
                 Projects
             </h3>
 
-            <div className="relative w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20">
+            <div ref={ref} {...events} className="relative w-full flex overflow-x-scroll overflow-y-hidden z-20">
                 {projects?.map((p, i) => (
                     <div
                         key={p._id}
@@ -29,7 +49,7 @@ function Projects({ projects }: Props) {
                     items-center justify-center p-10 lg:p-20 md:p-44 h-screen"
                     >
                         <motion.img
-                            className="lg:max-w-xl sm:max-w-full"
+                            className="lg:max-w-xl sm:max-w-full cursor-move"
                             initial={{ y: -300, opacity: 0 }}
                             transition={{ duration: 1.2 }}
                             whileInView={{ opacity: 1, y: 0 }}
@@ -46,7 +66,7 @@ function Projects({ projects }: Props) {
                                 </span>
                             </h4>
 
-                            <div className="flex space-x-2 justify-center">
+                            <div className="flex space-x-2 gap-x-3 justify-center items-start">
                                 {p.technologies.map((t) => (
                                     <Image
                                         key={t._id}
@@ -62,6 +82,44 @@ function Projects({ projects }: Props) {
                             <p className="lg:text-lg sm:text-sm text-center md:text-left">
                                 {p.summary}
                             </p>
+
+                            <div className='flex flex-row gap-5'>
+                                {!p?.repoPrivate || !p.linkToRepo ? (
+                                    <a href={p?.linkToRepo} className="h-relative" target="_blank" rel="noopener noreferrer">
+                                        <button className="projectButton flex flex-row justify-center items-center navButton hover:opacity-40" title="Live view"
+                                            onMouseEnter={() => {
+                                                setIsHovering(true);
+                                                play();
+                                            }}
+                                            onMouseLeave={() => {
+                                                setIsHovering(false);
+                                                stop();
+                                            }}>                                
+                                        repo
+                                        </button>
+                                    </a>
+                                    ) : (
+                                        ""
+                                )}
+
+                                {p?.linkToBuild ? (
+                                    <a href={p.linkToBuild} target="_blank" rel="noopener noreferrer">
+                                        <button className="projectButton flex flex-row justify-center items-center navButton hover:opacity-40" title="Live view"
+                                            onMouseEnter={() => {
+                                                setIsHovering(true);
+                                                play();
+                                            }}
+                                            onMouseLeave={() => {
+                                                setIsHovering(false);
+                                                stop();
+                                            }}>
+                                        Live View
+                                        </button>
+                                    </a>
+                                    ) : (
+                                        ""
+                                )}
+                            </div>
                         </div>
                     </div>
                 ))}
