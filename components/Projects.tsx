@@ -4,15 +4,24 @@ import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { Project } from '../typings'
 import { urlFor } from '../sanity'
-import { ArrowTopRightOnSquareIcon } from "@heroicons/react/24/solid";
-import { SocialIcon } from 'react-social-icons';
+import useSound from 'use-sound';
 
 type Props = {
     projects: Project[],
 }
 
 function Projects({ projects }: Props) {
-
+    const [isHovering, setIsHovering] = React.useState(
+        false
+    );
+        
+    const soundUrl = 'click.mp3';
+    
+    const [play, { stop }] = useSound(
+        soundUrl,
+        { volume: 0.3 }
+    );
+    
     const ref =
     useRef<HTMLDivElement>() as React.MutableRefObject<HTMLInputElement>;
 
@@ -77,8 +86,16 @@ function Projects({ projects }: Props) {
                             <div className='flex flex-row gap-5'>
                                 {!p?.repoPrivate || !p.linkToRepo ? (
                                     <a href={p?.linkToRepo} className="h-relative" target="_blank" rel="noopener noreferrer">
-                                        <button className="projectButton flex flex-row justify-center items-center navButton hover:opacity-40" title="Live view">                                
-                                                repo
+                                        <button className="projectButton flex flex-row justify-center items-center navButton hover:opacity-40" title="Live view"
+                                            onMouseEnter={() => {
+                                                setIsHovering(true);
+                                                play();
+                                            }}
+                                            onMouseLeave={() => {
+                                                setIsHovering(false);
+                                                stop();
+                                            }}>                                
+                                        repo
                                         </button>
                                     </a>
                                     ) : (
@@ -87,8 +104,16 @@ function Projects({ projects }: Props) {
 
                                 {p?.linkToBuild ? (
                                     <a href={p.linkToBuild} target="_blank" rel="noopener noreferrer">
-                                        <button className="projectButton flex flex-row justify-center items-center navButton hover:opacity-40" title="Live view">
-                                            Live View
+                                        <button className="projectButton flex flex-row justify-center items-center navButton hover:opacity-40" title="Live view"
+                                            onMouseEnter={() => {
+                                                setIsHovering(true);
+                                                play();
+                                            }}
+                                            onMouseLeave={() => {
+                                                setIsHovering(false);
+                                                stop();
+                                            }}>
+                                        Live View
                                         </button>
                                     </a>
                                     ) : (

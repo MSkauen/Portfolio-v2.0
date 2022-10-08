@@ -3,6 +3,7 @@ import React from 'react'
 import Image from 'next/image'
 import { urlFor } from '../sanity'
 import { Skill } from '../typings'
+import useSound from 'use-sound'
 
 type Props = {
     directionLeft?: boolean
@@ -10,6 +11,17 @@ type Props = {
 }
 
 function Skill({ directionLeft, skill }: Props) {
+    const [isHovering, setIsHovering] = React.useState(
+        false
+        );
+    
+        const soundUrl = 'whoofClick.mp3';
+    
+        const [play, { stop }] = useSound(
+            soundUrl,
+            { volume: 0.6 }
+          );
+    
     return (
         <div className="group relative flex cursor-pointer">
             <motion.div
@@ -23,6 +35,9 @@ function Skill({ directionLeft, skill }: Props) {
                 whileInView={{ opacity: 1, x: 0 }}
                 className="flex items-center justify-center rounded-full border border-gray-500 w-24 h-24 md:w-28 md:h-28 xl:w-32
                 xl:h-32"
+                onClick={() => {
+                    play();
+                  }}
             >
                 <Image
                     height={64}

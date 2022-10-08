@@ -22,7 +22,8 @@
         "react-scroll": "^1.8.6",
         "react-simple-typewriter": "^4.0.2",
         "react-social-icons": "^5.14.0",
-        "react-use-draggable-scroll": "^0.4.7"
+        "react-use-draggable-scroll": "^0.4.7",
+        "use-sound": "^4.0.1"
     },
     "devDependencies": {
         "@types/node": "18.7.21",
