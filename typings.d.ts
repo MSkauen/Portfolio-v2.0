@@ -37,6 +37,7 @@ export interface Skill extends SanityBody {
     image: Image;
     progress: number;
     title: string;
+    linkToSkill: string;
 }
 
 export interface Project extends SanityBody {

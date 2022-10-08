@@ -33,8 +33,7 @@ export default function Hero({ pageInfo }: Props) {
 
     return (
         <div
-            className="h-screen flex flex-col space-y-8 items-center justify-center
-    overflow-y-hidden text-center overflow-hidden"
+            className="h-screen flex flex-col space-y-8 items-center justify-center text-center overflow-hidden"
         >
             <BackgroundCircles />
 

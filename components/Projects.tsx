@@ -27,7 +27,7 @@ function Projects({ projects }: Props) {
 
     const { events } = useDraggable(ref, {
         applyRubberBandEffect: true,
-        decayRate: 0.98,
+        decayRate: 0.97,
       });
     return (
         <motion.div
@@ -37,16 +37,18 @@ function Projects({ projects }: Props) {
             className="h-screen relative flex flex-col text-left
             md:flex-row max-w-full justify-evenly mx-auto items-center z-0"
         >
-            <h3 className="absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl">
+            <h3 className="absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl text-center">
                 Projects
+                <p className=' text-gray-600 text-sm tracking-[20px] uppercase m-2'>
+                    Drag to scroll through
+                </p>
             </h3>
-
             <div ref={ref} {...events} className="relative w-full flex overflow-x-scroll overflow-y-hidden z-20">
                 {projects?.map((p, i) => (
                     <div
                         key={p._id}
                         className="w-screen flex-shrink-0 snap-center flex flex-col space-y-5
-                    items-center justify-center p-10 lg:p-20 md:p-44 h-screen"
+                    items-center justify-center p-10 lg:p-20 md:p-16 h-screen"
                     >
                         <motion.img
                             className="lg:max-w-xl sm:max-w-full cursor-move"
@@ -58,7 +60,7 @@ function Projects({ projects }: Props) {
                             alt={p?.title}
                         />
 
-                        <div className="lg:space-y-10 space-y-5 px-0 md:px-10 max-w-6xl">
+                        <div className="lg:space-y-8 space-y-2 px-0 md:px-7 max-w-6xl">
                             <h4 className="text-2xl font-semibold text-center">
                                 <span className="underline decoration-[#F7AB0A]/50">
                                     Case study {i + 1} of {projects?.length}:{' '}

@@ -19,7 +19,7 @@ function Skill({ directionLeft, skill }: Props) {
     
         const [play, { stop }] = useSound(
             soundUrl,
-            { volume: 0.6 }
+            { volume: 0.8 }
           );
     
     return (
@@ -33,7 +33,7 @@ function Skill({ directionLeft, skill }: Props) {
                     duration: 1,
                 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                className="flex items-center justify-center rounded-full border border-gray-500 w-24 h-24 md:w-28 md:h-28 xl:w-32
+                className=" flex items-center justify-center rounded-full border border-gray-500 w-24 h-24 md:w-28 md:h-28 xl:w-32
                 xl:h-32"
                 onClick={() => {
                     play();
@@ -47,15 +47,18 @@ function Skill({ directionLeft, skill }: Props) {
                 xl:h-23 filter group-hover:grayscale transition duration-300 ease-in-out"
                     alt={skill?.title}
                 />
+
                 <div
                     className="absolute opacity-0 group-hover:opacity-80 transition duration-300 ease-in-out
-            group-hover:bg-white h-24 w-24 md:w-28 md:h-28 xl:w-32 xl:h-32 rounded-full z-0"
+                    group-hover:bg-white h-24 w-24 md:w-28 md:h-28 xl:w-32 xl:h-32 rounded-full z-0"
                 >
-                    <div className="flex items-center justify-center h-full">
-                        <p className="text-xl font-bold text-black opacity-100">
-                            {skill?.title}
-                        </p>
-                    </div>
+                    <a href={skill?.linkToSkill} target="_blank" rel="noopener noreferrer">
+                            <div className="flex items-center justify-center h-full">
+                                <p className="text-xl font-bold text-black opacity-100">
+                                    {skill?.title}
+                                </p>
+                            </div>
+                    </a>
                 </div>
             </motion.div>
         </div>
