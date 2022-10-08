@@ -4,14 +4,15 @@
 
 This project is currently under development, but feel free to install the project yourself.
 
-[https://mathiasharestad.no](Live)
+[live](https://mathiasharestad.no)
 or
-[https://portfolio-v2-0-phi.vercel.app/](Live)
+[live mirror](https://portfolio-v2-0-phi.vercel.app)
 
 
 ## How to run
 
-- The project uses Sanity to create and fetch data
+- The project uses Sanity to create and fetch data.
+
 
 - Run command `npm install` to install required packages
 - Run command `cd sanity` to switch directories
