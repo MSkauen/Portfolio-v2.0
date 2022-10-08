@@ -5,6 +5,7 @@
 This project is currently under development, but feel free to install the project yourself.
 
 [View Live](https://mathiasharestad.no)
+
 [Mirror](https://portfolio-v2-0-phi.vercel.app)
 
 
