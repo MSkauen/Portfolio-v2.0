@@ -4,9 +4,8 @@
 
 This project is currently under development, but feel free to install the project yourself.
 
-[live](https://mathiasharestad.no)
-or
-[live mirror](https://portfolio-v2-0-phi.vercel.app)
+[View Live](https://mathiasharestad.no)
+[Mirror](https://portfolio-v2-0-phi.vercel.app)
 
 
 ## How to run
