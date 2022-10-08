@@ -33,7 +33,7 @@ function Skill({ directionLeft, skill }: Props) {
                     duration: 1,
                 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                className=" flex items-center justify-center rounded-full border border-gray-500 w-24 h-24 md:w-28 md:h-28 xl:w-32
+                className=" flex items-center justify-center rounded-full border border-gray-500 w-20 h-20 md:w-28 md:h-28 xl:w-32
                 xl:h-32"
                 onClick={() => {
                     play();

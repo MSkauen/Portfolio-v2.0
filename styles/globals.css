@@ -36,4 +36,7 @@
     ::-webkit-scrollbar-thumb:hover {
         background: rgb(247 171 10 / 0.4);
     }
+    .projectCard {
+        min-height: 150%;
+    }
 }
