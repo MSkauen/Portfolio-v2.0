@@ -20,18 +20,19 @@ export default function Hero({ pageInfo }: Props) {
     return (
         <div
             className="h-screen flex flex-col space-y-8 items-center justify-center
-    text-center overflow-hidden"
+    overflow-y-hidden text-center overflow-hidden"
         >
             <BackgroundCircles />
 
-            <Image
-                className="filter hue-rotate relative rounded-full mx-auto object-cover"
-                src={urlFor(pageInfo?.profilePic).url()}
-                height={128}
-                width={128}
-                alt="Profile picture"
-            />
-
+            <a href="https://dice-den.vercel.app/" target="_blank" rel="noopener noreferrer">
+                <Image
+                    className="filter hover:hue-rotate-60 animate-pulse relative rounded-full mx-auto object-cover"
+                    src={urlFor(pageInfo?.profilePic).url()}
+                    height={128}
+                    width={128}
+                    alt="Profile picture"
+                />
+            </a>
             <div className="z-20">
                 <h2 className="text-sm uppercase text-gray-500 pg-2 tracking-[15px]">
                     Software Engineer
