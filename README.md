@@ -4,7 +4,7 @@
 
 This project is currently under development, but feel free to install the project yourself.
 
-[View Live]https://portfolio-v2-0-phi.vercel.app)
+[View Live](https://portfolio-v2-0-phi.vercel.app)
 
 [Mirror](https://portfolio-v2-0-phi.vercel.app)
 
