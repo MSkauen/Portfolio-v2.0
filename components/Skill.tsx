@@ -26,14 +26,14 @@ function Skill({ directionLeft, skill }: Props) {
         <div className="group relative flex cursor-pointer">
             <motion.div
                 initial={{
-                    x: directionLeft ? -200 : 200,
+                    x: directionLeft ? -200 : 100,
                     opacity: 0,
                 }}
                 transition={{
                     duration: 1,
                 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                className=" flex items-center justify-center rounded-full border border-gray-500 w-20 h-20 md:w-28 md:h-28 xl:w-32
+                className="overflow-hidden flex items-center justify-center rounded-full border border-gray-500 w-20 h-20 md:w-28 md:h-28 xl:w-32
                 xl:h-32"
                 onClick={() => {
                     play();
@@ -43,7 +43,7 @@ function Skill({ directionLeft, skill }: Props) {
                     height={64}
                     width={64}
                     src={urlFor(skill?.image).url()}
-                    className="object-contain w-16 h-16 md:w-18 md:h-18 xl:w-23
+                    className="object-contain p-10 w-16 h-16 md:w-18 md:h-18 xl:w-23
                 xl:h-23 filter group-hover:grayscale transition duration-300 ease-in-out"
                     alt={skill?.title}
                 />

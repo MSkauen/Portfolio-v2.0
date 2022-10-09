@@ -14,9 +14,10 @@
          hover:border-[#F7AB0A]/40 hover:text-[#F7AB0A]/40;
     }
     .contactInput {
-        @apply outline-none bg-slate-400/10 rounded-sm border-b lg:px-6 lg:py-4 md:px-5 md:py-3 sm:px-4 sm:py-2 border-[#242424]
+        @apply outline-none bg-slate-400/10 rounded-sm border-b lg:px-6 lg:py-4 md:px-5 md:py-3 px-5 py-3 border-[#242424]
         text-gray-500 placeholder-gray-500 transition-all focus:border-[#F7AB0A]/40
         focus:text-[#F7AB0A]/40 hover:border-[#F7AB0A]/40;
+        min-width: 50px;
     }
 
     ::-webkit-scrollbar {

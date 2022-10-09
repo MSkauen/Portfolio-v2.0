@@ -37,13 +37,10 @@ function Projects({ projects }: Props) {
             className="projectCard h-screen relative flex flex-col text-left
             md:flex-row max-w-full justify-evenly mx-auto items-center z-0"
         >
-            <h3 className="absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl text-center">
+            <h3 className="absolute ml-5 top-20 md:top-24 lg:top-24 uppercase tracking-[20px] text-gray-500 text-2xl text-center">
                 Projects
-                <p className=' text-gray-600 text-lg tracking-[20px] uppercase m-2'>
-                    Drag to scroll
-                </p>
             </h3>
-            <div ref={ref} {...events} className="relative w-full flex overflow-x-scroll overflow-y-hidden z-20 ">
+            <div ref={ref} {...events} className="relative w-full flex overflow-x-scroll overflow-y-hidden z-20 lg:mb-3 md:mb-3">
                 {projects?.map((p, i) => (
                     <div
                         key={p._id}
@@ -52,7 +49,7 @@ function Projects({ projects }: Props) {
                     >
                         <motion.img
                             className="lg:max-w-xl sm:max-w-full cursor-move"
-                            initial={{ y: -300, opacity: 0 }}
+                            initial={{ y: -200, opacity: 0 }}
                             transition={{ duration: 1.2 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
@@ -81,7 +78,7 @@ function Projects({ projects }: Props) {
                                 ))}
                             </div>
 
-                            <p className="lg:text-lg md:text-lg sm:text-sm text-center md:text-left">
+                            <p className="line-clamp-4 lg:text-lg md:text-lg sm:text-sm text-left md:text-left lg:text-center">
                                 {p.summary}
                             </p>
 
