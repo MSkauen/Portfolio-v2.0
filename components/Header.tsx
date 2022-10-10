@@ -32,10 +32,18 @@ function Header({ socials }: Props) {
                     className='cursor-pointer hover:opacity-40'
                     key={e._id}
                     url={e.url}
-                    fgColor='grey'
                     bgColor='transparent'
+                    fgColor='gray'
+                    label={e.title}
                 />
             ))}
+            <SocialIcon
+                className='cursor-pointer hover:opacity-40'
+                url="https://stackoverflow.com/users/7473076/mathiash"
+                network="sharethis"
+                bgColor='transparent'
+                fgColor='gray'
+            />
         </motion.div>
 
         <motion.div

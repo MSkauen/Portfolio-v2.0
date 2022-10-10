@@ -20,9 +20,6 @@ export default function Hero({ pageInfo }: Props) {
         delaySpeed: 2000,
     })
     
-    const [isHovering, setIsHovering] = React.useState(
-    false
-    );
 
     const soundUrl = 'whoof.mp3';
 
@@ -45,11 +42,9 @@ export default function Hero({ pageInfo }: Props) {
                     width={128}
                     alt="Profile picture"
                     onMouseEnter={() => {
-                        setIsHovering(true);
                         play();
                       }}
                       onMouseLeave={() => {
-                        setIsHovering(false);
                         stop();
                       }}
                 />

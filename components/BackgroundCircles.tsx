@@ -20,19 +20,19 @@ function BackgroundCircles({}: Props) {
       className="relative flex justify-center items-center"
     >
       <div
-        className="absolute border border-[#333333]/60 rounded-full h-[200px] w-[200px]
+        className="absolute border border-[#333333]/60 rounded-full h-[100px] w-[100px] md:h-[200px] md:w-[200px]
             mt-52 animate-ping"
       />
       <div
-        className="absolute border border-[#333333]/60 rounded-full h-[300px] w-[300px]
+        className="absolute border border-[#333333]/60 rounded-full h-[200px] w-[200px] md:h-[300px] md:w-[300px]
             mt-52 animate-ping"
       />
       <div
-        className="absolute border border-[#333333]/60 rounded-full h-[500px] w-[500px]
+        className="absolute border border-[#333333]/60 rounded-full h-[400px] w-[400px] md:h-[500px] md:w-[500px]
             mt-52 animate-ping"
       />
       <div
-        className="absolute border border-[#F7AB0A] opacity-20 rounded-full h-[650px] w-[650px]
+        className="absolute border border-[#F7AB0A] opacity-20 rounded-full h-[350px] w-[350px] md:h-[650px] md:w-[650px]
             mt-52 animate-pulse"
       />
       <div
