@@ -37,7 +37,7 @@ function Projects({ projects }: Props) {
             className="projectCard h-screen relative flex flex-col text-left
             md:flex-row max-w-full justify-evenly mx-auto items-center z-0"
         >
-            <h3 className="absolute ml-5 top-20 md:top-24 lg:top-24 uppercase tracking-[20px] text-gray-500 text-2xl text-center">
+            <h3 className="absolute ml-5 top-20 md:top-24 uppercase tracking-[20px] text-gray-500 text-2xl text-center">
                 Projects
             </h3>
             <div ref={ref} {...events} className="relative w-full flex overflow-x-scroll overflow-y-hidden z-20 lg:mb-3 md:mb-3">
@@ -82,10 +82,9 @@ function Projects({ projects }: Props) {
                                 {p.summary}
                             </p>
 
-                            <div className='flex flex-row gap-5'>
-                                {!p?.repoPrivate || !p.linkToRepo ? (
-                                    <a href={p?.linkToRepo} className="h-relative" target="_blank" rel="noopener noreferrer">
-                                        <button className="projectButton flex flex-row justify-center items-center navButton hover:opacity-40" title="Live view"
+                            <div className='flex flex-row gap-5 py-2'>
+                                {p?.linkToBuild ? (
+                                    <a href={p.linkToBuild} target="_blank" rel="noopener noreferrer" className="projectButton flex flex-row justify-center items-center navButton hover:opacity-40"                                    
                                             onMouseEnter={() => {
                                                 setIsHovering(true);
                                                 play();
@@ -93,38 +92,38 @@ function Projects({ projects }: Props) {
                                             onMouseLeave={() => {
                                                 setIsHovering(false);
                                                 stop();
-                                            }}>                                
-                                        repo
-                                        </button>
+                                            }}
+                                    >
+                                        Live View
                                     </a>
                                     ) : (
                                         ""
                                 )}
 
-                                {p?.linkToBuild ? (
-                                    <a href={p.linkToBuild} target="_blank" rel="noopener noreferrer">
-                                        <button className="projectButton flex flex-row justify-center items-center navButton hover:opacity-40" title="Live view"
-                                            onMouseEnter={() => {
-                                                setIsHovering(true);
-                                                play();
-                                            }}
-                                            onMouseLeave={() => {
-                                                setIsHovering(false);
-                                                stop();
-                                            }}>
-                                        Live View
-                                        </button>
+                                {!p?.repoPrivate || !p.linkToRepo ? (
+                                    <a href={p?.linkToRepo} target="_blank" rel="noopener noreferrer" className="projectButton flex flex-row justify-center items-center navButton hover:opacity-40"                                    
+                                        onMouseEnter={() => {
+                                            setIsHovering(true);
+                                            play();
+                                        }}
+                                        onMouseLeave={() => {
+                                            setIsHovering(false);
+                                            stop();
+                                        }}
+                                    >
+                                        Repo
                                     </a>
                                     ) : (
-                                        ""
+                                    ""
                                 )}
+
                             </div>
                         </div>
                     </div>
                 ))}
             </div>
 
-            <div className="w-full absolute top-[30%] bg-[#F7AB0A]/10 left-0 h-[500px] -skew-y-12" />
+            <div className="w-full absolute top-[27%] bg-[#F7AB0A]/10 left-0 h-[500px] -skew-y-12" />
         </motion.div>
     )
 }

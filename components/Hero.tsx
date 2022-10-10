@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Cursor, useTypewriter } from 'react-simple-typewriter'
 import { urlFor } from '../sanity'
 import { PageInfo } from '../typings'
@@ -20,7 +20,6 @@ export default function Hero({ pageInfo }: Props) {
         delaySpeed: 2000,
     })
     
-
     const soundUrl = 'whoof.mp3';
 
     const [play, { stop }] = useSound(
@@ -43,10 +42,10 @@ export default function Hero({ pageInfo }: Props) {
                     alt="Profile picture"
                     onMouseEnter={() => {
                         play();
-                      }}
-                      onMouseLeave={() => {
+                    }}
+                    onMouseLeave={() => {
                         stop();
-                      }}
+                    }}
                 />
             </a>
             <div className="z-20">
@@ -54,8 +53,8 @@ export default function Hero({ pageInfo }: Props) {
                     Software Engineer
                 </h2>
                 <h1 className="text-4xl lg:text-6xl font-semibold px-10">
-                    <span className="mr-3">{text}</span>
-                    <Cursor cursorColor="#F7AB0A" />
+                    <span className="mr-3">Mathias Skauen Harestad</span>
+                    <Cursor cursorColor="#F7AB0A"/>
                 </h1>
 
                 <HeroButtons/>

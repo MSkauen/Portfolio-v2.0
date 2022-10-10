@@ -32,7 +32,7 @@ function BackgroundCircles({}: Props) {
             mt-52 animate-ping"
       />
       <div
-        className="absolute border border-[#F7AB0A] opacity-20 rounded-full h-[350px] w-[350px] md:h-[650px] md:w-[650px]
+        className="absolute border border-[#F7AB0A] opacity-20 rounded-full h-[500px] w-[500px] md:h-[650px] md:w-[650px]
             mt-52 animate-pulse"
       />
       <div

@@ -5,6 +5,7 @@ const nextConfig = {
     images: {
         domains: ['cdn.sanity.io', 'cdn.jsdelivr.net'],
     },
+    spa: true,
 }
 
 module.exports = nextConfig

@@ -18,7 +18,7 @@ function Skills({ skills }: Props) {
             xl:space-y-0 mx-auto items-center'
     >
       <div className="skills-ref"></div>
-        <h3 className='absolute top-14 md:top-20 lg:top-24 ml-3 uppercase tracking-[20px] text-gray-500 text-2xl'>
+        <h3 className='absolute top-20 md:top-20 lg:top-24 ml-3 uppercase tracking-[20px] text-gray-500 text-2xl'>
             Skills
         </h3>
         <div className='grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5 '>
