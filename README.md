@@ -4,7 +4,7 @@
 
 This project is currently under development, but feel free to install the project yourself.
 
-![Portfolio](assets/images/screenshot.jpg)
+![Portfolio](assets/screenshot.jpg)
 
 [View Live](https:///www.mathiasharestad.no/)
 
