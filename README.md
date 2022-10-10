@@ -4,7 +4,7 @@
 
 ![Portfolio](assets/screenshot.jpg)
 
-[View Live](https:///www.mathiasharestad.no/) [Mirror](https://portfolio-v2-0-phi.vercel.app)
+[View Live](https:///www.mathiasharestad.no/) | [Mirror](https://portfolio-v2-0-phi.vercel.app)
 
 ## How to run
 
