@@ -16,7 +16,7 @@ function HeroButtons({}: Props) {
         { volume: 0.3 }
     );
 
-  return <div className="pt-5">
+  return <div className="pt-5 flex flex-row gap-3 py-2 justify-center items-center">
   <Link href="#projects">
       <button className="heroButton"
           onMouseEnter={() => {

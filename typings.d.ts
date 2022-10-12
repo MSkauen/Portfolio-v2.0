@@ -22,6 +22,7 @@ export interface PageInfo extends SanityBody {
     heroImage: ImageSmoothingQuality;
     name: string;
     phoneNumber: string;
+    heroSoundUrl: string;
     profilePic: Image;
 }
 

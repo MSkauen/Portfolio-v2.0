@@ -22,9 +22,7 @@ function Header({ socials }: Props) {
                 opacity: 1,
                 scale: 1,
             }}
-            transition={{
-                duration: 1.5,
-            }}
+            transition={{ duration: 1.5 }}
             className='flex flex-row items-center'
         >
             {socials?.map((e) => (
@@ -57,9 +55,7 @@ function Header({ socials }: Props) {
                 opacity: 1,
                 scale: 1,
             }}
-            transition={{
-                duration: 1.5,
-            }}
+            transition={{ duration: 1.5 }}
             className='flex flex-row items-center'
         >
 

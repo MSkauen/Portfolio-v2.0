@@ -1,6 +1,5 @@
 import Image from 'next/image'
-import Link from 'next/link'
-import React, { useEffect } from 'react'
+import React from 'react'
 import { Cursor, useTypewriter } from 'react-simple-typewriter'
 import { urlFor } from '../sanity'
 import { PageInfo } from '../typings'
@@ -25,7 +24,7 @@ export default function Hero({ pageInfo }: Props) {
     const [play, { stop }] = useSound(
         soundUrl,
         { volume: 0.6 }
-      );
+    );
 
     return (
         <div
@@ -49,11 +48,11 @@ export default function Hero({ pageInfo }: Props) {
                 />
             </a>
             <div className="z-20">
-                <h2 className="text-sm uppercase text-gray-500 pg-2 tracking-[15px]">
+                <h2 className="ml-6 text-sm uppercase text-gray-500 pg-2 tracking-[15px]">
                     Software Engineer
                 </h2>
                 <h1 className="text-4xl lg:text-6xl font-semibold px-10">
-                    <span className="mr-3">Mathias Skauen Harestad</span>
+                    <span className="ml-5 mr-3">{text}</span>
                     <Cursor cursorColor="#F7AB0A"/>
                 </h1>
 

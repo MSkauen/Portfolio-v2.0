@@ -10,17 +10,13 @@ type Props = {
     skill: Skill
 }
 
-function Skill({ directionLeft, skill }: Props) {
-    const [isHovering, setIsHovering] = React.useState(
-        false
+function Skill({ directionLeft, skill }: Props) { 
+    const soundUrl = 'whoofClick.mp3';
+
+    const [play, { stop }] = useSound(
+        soundUrl,
+        { volume: 0.8 }
         );
-    
-        const soundUrl = 'whoofClick.mp3';
-    
-        const [play, { stop }] = useSound(
-            soundUrl,
-            { volume: 0.8 }
-          );
     
     return (
         <div className="group relative flex cursor-pointer">
@@ -50,14 +46,14 @@ function Skill({ directionLeft, skill }: Props) {
 
                 <div
                     className="absolute opacity-0 group-hover:opacity-80 transition duration-300 ease-in-out
-                    group-hover:bg-white h-24 w-24 md:w-28 md:h-28 xl:w-32 xl:h-32 rounded-full z-0"
+                    group-hover:bg-white h-20 w-20 md:w-28 md:h-28 xl:w-32 xl:h-32 rounded-full z-0"
                 >
                     <a href={skill?.linkToSkill} target="_blank" rel="noopener noreferrer">
-                            <div className="flex items-center justify-center h-full">
-                                <p className="text-xl font-bold text-black opacity-100">
-                                    {skill?.title}
-                                </p>
-                            </div>
+                        <div className="flex items-center justify-center h-full">
+                            <p className="text-sm md:text-xl font-bold text-black opacity-100">
+                                {skill?.title}
+                            </p>
+                        </div>
                     </a>
                 </div>
             </motion.div>
