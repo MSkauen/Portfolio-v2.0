@@ -29,7 +29,14 @@
 -   Change placeholders
 
 ## Troubleshooting
-
+-   Check your environmental variables in your .env or .env.local file, or your host's environmental variables. 
+    ```
+       NEXT_PUBLIC_SANITY_DATASET=
+       NEXT_PUBLIC_SANITY_PROJECT_ID=
+       NEXT_PUBLIC_BASE_URL=
+    ```    
+    -   Check sanity/sanity.json file for dataset and projectId (should be under api)
+    -   Base url: Link to your domain/provider f.ex: https://mathiasharestad.no
 -   Check package versions.
 -   Restart application and sanity server
 -   Run `npm install` - perhaps also delete the `node_modules` directory.
