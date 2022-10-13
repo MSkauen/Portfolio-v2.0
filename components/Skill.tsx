@@ -3,21 +3,14 @@ import React from 'react'
 import Image from 'next/image'
 import { urlFor } from '../sanity'
 import { Skill } from '../typings'
-import useSound from 'use-sound'
 
 type Props = {
     directionLeft?: boolean
     skill: Skill
+    audioController: any
 }
 
-function Skill({ directionLeft, skill }: Props) { 
-    const soundUrl = 'whoofClick.mp3';
-
-    const [play, { stop }] = useSound(
-        soundUrl,
-        { volume: 0.8 }
-        );
-    
+function Skill({ directionLeft, skill, audioController }: Props) {
     return (
         <div className="group relative flex cursor-pointer">
             <motion.div
@@ -32,8 +25,10 @@ function Skill({ directionLeft, skill }: Props) {
                 className="overflow-hidden flex items-center justify-center rounded-full border border-gray-500 w-20 h-20 md:w-28 md:h-28 xl:w-32
                 xl:h-32"
                 onClick={() => {
-                    play();
-                  }}
+                    audioController.play();
+                    console.log(audioController);
+                    
+                }}
             >
                 <Image
                     height={64}
@@ -48,7 +43,11 @@ function Skill({ directionLeft, skill }: Props) {
                     className="absolute opacity-0 group-hover:opacity-80 transition duration-300 ease-in-out
                     group-hover:bg-white h-20 w-20 md:w-28 md:h-28 xl:w-32 xl:h-32 rounded-full z-0"
                 >
-                    <a href={skill?.linkToSkill} target="_blank" rel="noopener noreferrer">
+                    <a
+                        href={skill?.linkToSkill}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
                         <div className="flex items-center justify-center h-full">
                             <p className="text-sm md:text-xl font-bold text-black opacity-100">
                                 {skill?.title}

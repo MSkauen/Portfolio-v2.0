@@ -4,32 +4,27 @@ import { Cursor, useTypewriter } from 'react-simple-typewriter'
 import { urlFor } from '../sanity'
 import { PageInfo } from '../typings'
 import BackgroundCircles from './BackgroundCircles'
-import useSound from 'use-sound';
 import HeroButtons from './HeroButtons'
-
+import AudioController from './AudioController'
 
 type Props = {
-    pageInfo: PageInfo
+    pageInfo: PageInfo,
+    soundUrl: string,
+    volume: number
 }
 
-export default function Hero({ pageInfo }: Props) {
-    const [text, count] = useTypewriter({
+export default function Hero({ pageInfo, soundUrl, volume }: Props) {
+
+    const { play, stop } = AudioController(soundUrl, volume)
+
+    const [text] = useTypewriter({
         words: [`${pageInfo?.name}`, 'Front-end', 'Back-end'],
         loop: true,
         delaySpeed: 2000,
     })
-    
-    const soundUrl = 'whoof.mp3';
-
-    const [play, { stop }] = useSound(
-        soundUrl,
-        { volume: 0.6 }
-    );
 
     return (
-        <div
-            className="h-screen flex flex-col space-y-8 items-center justify-center text-center overflow-hidden"
-        >
+        <div className="h-screen flex flex-col space-y-8 items-center justify-center text-center overflow-hidden">
             <BackgroundCircles />
 
             <a href="https://dice-den.vercel.app/" rel="noopener noreferrer">
@@ -40,10 +35,10 @@ export default function Hero({ pageInfo }: Props) {
                     width={128}
                     alt="Profile picture"
                     onMouseEnter={() => {
-                        play();
+                        play()
                     }}
                     onMouseLeave={() => {
-                        stop();
+                        stop()
                     }}
                 />
             </a>
@@ -53,10 +48,10 @@ export default function Hero({ pageInfo }: Props) {
                 </h2>
                 <h1 className="text-4xl lg:text-6xl font-semibold px-10">
                     <span className="ml-5 mr-3">{text}</span>
-                    <Cursor cursorColor="#F7AB0A"/>
+                    <Cursor cursorColor="#F7AB0A" />
                 </h1>
 
-                <HeroButtons/>
+                <HeroButtons />
             </div>
         </div>
     )

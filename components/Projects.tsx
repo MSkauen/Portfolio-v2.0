@@ -4,31 +4,23 @@ import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { Project } from '../typings'
 import { urlFor } from '../sanity'
-import useSound from 'use-sound';
+import AudioController from './AudioController';
 
 type Props = {
     projects: Project[],
+    soundUrl: string,
+    volume: number
 }
 
-function Projects({ projects }: Props) {
-    const [isHovering, setIsHovering] = React.useState(
-        false
-    );
-        
-    const soundUrl = 'click.mp3';
+function Projects({ projects, soundUrl, volume }: Props) {
+    const { play, stop } = AudioController(soundUrl, volume)
     
-    const [play, { stop }] = useSound(
-        soundUrl,
-        { volume: 0.3 }
-    );
-    
-    const ref =
-    useRef<HTMLDivElement>() as React.MutableRefObject<HTMLInputElement>;
-
+    const ref = useRef<HTMLDivElement>() as React.MutableRefObject<HTMLInputElement>;
     const { events } = useDraggable(ref, {
         applyRubberBandEffect: true,
         decayRate: 0.97,
       });
+
     return (
         <motion.div
             initial={{ opacity: 0 }}
@@ -86,11 +78,9 @@ function Projects({ projects }: Props) {
                                 {p?.linkToBuild ? (
                                     <a href={p.linkToBuild} target="_blank" rel="noopener noreferrer" className="projectButton flex flex-row justify-center items-center navButton hover:opacity-40"                                    
                                             onMouseEnter={() => {
-                                                setIsHovering(true);
                                                 play();
                                             }}
                                             onMouseLeave={() => {
-                                                setIsHovering(false);
                                                 stop();
                                             }}
                                     >
@@ -103,11 +93,9 @@ function Projects({ projects }: Props) {
                                 {!p?.repoPrivate || !p.linkToRepo ? (
                                     <a href={p?.linkToRepo} target="_blank" rel="noopener noreferrer" className="projectButton flex flex-row justify-center items-center navButton hover:opacity-40"                                    
                                         onMouseEnter={() => {
-                                            setIsHovering(true);
                                             play();
                                         }}
                                         onMouseLeave={() => {
-                                            setIsHovering(false);
                                             stop();
                                         }}
                                     >

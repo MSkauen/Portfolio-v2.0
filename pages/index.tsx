@@ -33,15 +33,15 @@ const Home = ({ pageInfo, socials, skills, projects }: Props) => {
             <Header socials={socials} />
 
             <section id="hero" className="snap-start">
-                <Hero pageInfo={pageInfo} />
+                <Hero pageInfo={pageInfo} soundUrl={'whoof.mp3'} volume={0.6} />
             </section>
 
             <section id="projects" className="snap-start">
-                <Projects projects={projects} />
+                <Projects projects={projects} soundUrl={'click.mp3'} volume={0.6}/>
             </section>
 
             <section id="skills" className="snap-start">
-                <Skills skills={skills} />
+                <Skills skills={skills} soundUrl={'click.mp3'} volume={0.6}/>
             </section>
 
             <section id="contact" className="snap-start">
