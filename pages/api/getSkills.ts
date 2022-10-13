@@ -1,11 +1,7 @@
-import type { NextApiRequest, NextApiResponse } from "next";
-import { groq } from "next-sanity";
-import { sanityClient } from "../../sanity";
-import { Skill } from "../../typings";
-
-const query = groq`
-    *[_type == "skill"]
-`
+import type { NextApiRequest, NextApiResponse } from 'next'
+import { sanityClient } from '../../sanity'
+import { Skill } from '../../typings'
+import SanityQueries from '../../components/SanityQueries'
 
 type Data = {
     skills: Skill[]
@@ -14,8 +10,10 @@ type Data = {
 export default async function handler(
     req: NextApiRequest,
     res: NextApiResponse<Data>
-  ) {
-    const skills: Skill[] = await sanityClient.fetch(query);
+) {
+    const skills: Skill[] = await sanityClient.fetch(
+        SanityQueries().skillsQuery
+    )
 
-    res.status(200).json({ skills });
-  }
+    res.status(200).json({ skills })
+}
